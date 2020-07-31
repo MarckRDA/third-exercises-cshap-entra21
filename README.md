@@ -2,7 +2,7 @@
 
 Each resolution of this list is in this repository. The identification is a commentary above the Class' name:
 
-    // Exercise 1)a <--- Id
+    // Exercise 1 <--- Id
 
 If you'd like to run those codes, you need to replace de class' name to Main and after that, run the code:
 
@@ -48,49 +48,25 @@ static void Main(string[] args)
 //Then, run the code!
 ```
 
-1. Crie um programa que imprima:
-- Os números de 1 a 10 de forma crescente.
-- Os números de 1 a 10 de forma descrecente.
-- Os números de 1 a 10 de forma crescente, mas apenas aqueles que forem par.
+1- Popule dois vetores com 10 valores cada. Após esta operação, troque o conteúdo dos vetores.
 
-2. Imprimir a soma dos números inteiros de 1 a 100.
+2- Dado um vetor qualquer com 10 números, faça um programa que informa se há ou não números repetidos nesse vetor.
 
-3. Imprimir todo os números ímpares menores de 200.
+3- Um certa empresa fez uma pesquisa para saber se as pessoas gostaram ou não de um novo produto lançado no mercado. Para isso, forneceu-se o sexo do entrevistado e a sua resposta (sim ou não). Sabendo-se que foram entrevistadas 10 pessoas, fazer um algoritmo que calcule e escreva:
+• O número de pessoas que responderam sim;
+• O número de pessoas que responderam não;
+• A percentagem de pessoas do sexo feminino que responderam sim;
+• A percentagem de pessoas do sexo masculino que responderam não;
 
-4. Calcular a média de idade de uma turma qualquer. O algoritmo deve parar quando for digitada a idade igual a zero.
+4- Desenvolver um programa que efetue a leitura de cinco elementos de uma matriz // A do tipo vetor. No final, apresente o total da soma de todos os elementos // que sejam impares.
 
-5. Criar um algoritmo que peça o nome e a idade de 5 mulheres. Após informar estes dados, o programa deve mostrar apenas porcentagem de mulheres que estão com idade entre 18 e 35. 
+5- Contar quantos valores de um vetor de 10 posições são positivos.
 
-6. Criar um algoritmo que simule uma urna eletrônica. Esta urna deve possuir dois candidatos e possui três modos. O primeiro é o modo de CADASTRO, onde o sistema pergunta o nome de cada um dos dois candidatos. Por medidas de segurança, para poder cadastrar um candidato na urna o sistema deve solicitar ao usuário a senha para poder ter acesso (a senha do sistema é Pa$$w0rd). O segundo modo é o modo de votos, onde o usuário informa 1 para votar no primeiro candidato e 2 para votar no segundo candidato. O terceiro modo, é o modo de apuração de votos, onde o sistema verifica qual candidato tem mais votos. Caso o número de votos seja igual, o sistema deve imprimir a mensagem "SEGUNDO TURNO", caso contrário deve imprimir o nome do candidato vencedor e o número de votos que ele obteve.
+6- Ler um vetor de 10 posições (aceitar somente números positivos). Escrever a seguir o valor do maior elemento de Q e a respectiva posição que ele ocupa no vetor.
 
-7. Calcular a quantidade de dinheiro gasta por um fumante. Dados: o numero de anos que ele fuma, o nº de cigarros fumados por dia e o preço de uma carteira.
+7- Crie e popule um vetor A e imprima na tela o número de vezes que existe um número residindo na mesma posição do vetor que seu valor numérico.
 
-8. Ler dois números inteiros, X e Y, e apresentar mensagem informando se o X é múltiplo de Y.
+8- Crie um vetor de strings de 10 posições onde cada posição recebe uma letra do alfabeto. No final, imprima quantas destas são vogais.
 
-9. Fazer um algoritmo para ler 03 números reais do teclado e verificar se o primeiro é maior que a soma dos outros dois.
+9- Crie um vetor de strings de 10 posições onde cada posição recebe uma letra do alfabeto. No final, imprima a string resultante da soma das strings que residem em índices pares.
 
-10. Ler 02 números reais do teclado (A e B), verificar e imprimir qual deles é maior, ou a mensagem "A = B" caso sejam iguais.
-
-11. Ler 02 números inteiros do teclado. Se o segundo for diferente de zero, calcular e imprimir o quociente do primeiro pelo segundo. Caso contrário, 
-imprimir a mensagem: "DIVISÃO POR ZERO".
-
-12. Ler 4 números inteiros e calcular a soma dos que forem
-
-13. Ler 10 valores e determinar o maior dentre eles.
-
-14. Ler três valores e colocá-los em ordem.
-
-15. Ler 10 números e imprimir quantos são múltiplos de 3 e quantos são múltiplos de 5.
-
-16. Ler o salário de uma pessoa e imprimir o Salário Líquido de acordo com a redução do imposto descrito ao lado:
-- Menor ou igual a R$ 600,00 - ISENTO
-- Maior que R$ 600,00 e menor ou igual a 100 - 20% desconto
-- Maior que R$ 1.200,00 e menor ou igual a R$2000 - 25% desconto
-- Maior que R$ 2.000,00 - 30% desconto
-
-
-17)Imprimir a tabuada de qualquer número fornecido pelo usuário até que o usuário forneça o valor –1.
-
-18)As maçãs custam R$ 1,30 cada se forem compradas menos de uma dúzia, e R$ 1,00 se forem
-compradas pelo menos 12. Escreva um programa que leia o número de maçãs compradas, calcule e
-escreva o custo total da compra. 
