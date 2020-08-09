@@ -5,246 +5,293 @@ namespace third_exercises_csharp_entra21
     class Program
     {   
         //Exercise 1
-        static void SwichVects(string[] args)
-        {
-            int [] vectA = new int[10];
-            int [] vectB = new int [10];
-            int [] auxiliarVect = new int[10];
-            var count = 0;
-
-            while (count < 10)
+        static void Exercise1()
+        {   
+            const int arrayLength = 10;
+            double [] vectA = new double[arrayLength];
+            double [] vectB = new double[arrayLength];
+            double [] auxiliarVect = new double[arrayLength];
+            
+            for (int i = 0; i < arrayLength; i++)
             {
-                System.Console.WriteLine("Digit the {0}º number in the A vector: ", count+1);
-                vectA[count] = Convert.ToInt32(System.Console.ReadLine());
-                count++;
+                Console.WriteLine($"Digit the {i + 1}º number in vector A: ");
+                var input = Console.ReadLine();
+                try
+                {
+                    vectA[i] = Double.Parse(input);
+                    auxiliarVect[i] = vectA[i];
+                }
+                catch (System.Exception)
+                {
+                    
+                    Console.WriteLine("Insert only numbers.");
+                }
             }
 
-            count =0;
-
-            while (count < 10)
+            for (int i = 0; i < arrayLength; i++)
             {
-                System.Console.WriteLine("Digit the {0}º number in the B vector: ", count+1);
-                vectB[count] = Convert.ToInt32(System.Console.ReadLine());
-                count++;
+                Console.WriteLine($"Digit the {i + 1}º number in vector B: ");
+                var input = Console.ReadLine();
+                try
+                {
+                    vectB[i] = Double.Parse(input);
+                    vectA[i] = vectB[i];
+                }
+                catch (System.Exception)
+                {
+                    
+                    Console.WriteLine("Insert only numbers.");
+                }
             }
-            Array.Copy(vectA, auxiliarVect, 10);
-            Array.Copy(vectB, vectA, 10);
-            Array.Copy(auxiliarVect, vectB, 10);
-            System.Console.WriteLine(string.Join(" ", vectA));
-            System.Console.WriteLine(string.Join(" ", vectB));
+
+            for (int i = 0; i < arrayLength; i++)
+            {
+                vectB[i] = auxiliarVect[i];
+            }
+        }
+        static void Exercise2() 
+        {
+            double [] vect = new double[10];
+            var thereIsARepeatedNumber = false;
+            for (int i = 0; i < vect.Length; i++)
+            {
+                Console.WriteLine($"Digit the {i + 1}º number: ");
+                var input = Console.ReadLine();
+                try
+                {
+                    vect[i] = Double.Parse(input);
+                }
+                catch (System.Exception)
+                {
+                    
+                    Console.WriteLine("Insert only numbers.");
+                }
+            }
+            
+            for (int i = 0; i < vect.Length; i++)
+            {
+                for (int j = 0; j < vect.Length; j++)
+                {
+                    if (i != j && vect[i] == vect[j])
+                    {
+                        thereIsARepeatedNumber = true;
+                        break;
+                    }  
+                }
+            }
+
+            var messager = (thereIsARepeatedNumber) ? "There's a repeated number!" : "There's not a repeated number!";
+
+            Console.WriteLine(messager);
         }
 
-        //Exercise 2
-        public static void Main() 
-        {
-           int[] vect = {1,2,3,3,4,5,6,7,9,10};
-           var count = 0;
-           var flag = 0;
-           
-           while (count < 10){
-           	var i = 0;
-           	while (i< 9){
-           		if (vect[count]==vect[i+1]){
-           			System.Console.WriteLine("tem");
-           			flag++;
-           			break;
-           		}
-           		else if (i == 9){
-           			System.Console.WriteLine("nao tem");
-           			
-           		}
-           		i++;
-           	}
-           	count++;
-           	if(flag > 0){
-           		break;
-           	}
-           	
-           }
-        }
+        static void Exercise3()
+        {   
+            const int interviwers = 5;
+            (int woman, int answerYes, int answerNo) woman = (0,0,0);
+            (int man, int answerYes, int answerNo) man =(0,0,0) ;
 
-        //Exercise 3
-        static void SearchProduct(string[] args)
-        {
-           var man = 0.0;
-           var woman = 0.0;
-           var manNo = 0.0;
-           var manYes = 0.0;
-           var womanNo = 0.0;
-           var womanYes = 0.0;
-           var count = 0.0;
-
-           while (count < 10){
-                System.Console.WriteLine("Are you a man or woman ?  Type 1 - for man/ 2 for woman ");
+            for (int i = 0; i < interviwers; i++)
+            {
+                System.Console.WriteLine("Are you a man or woman ?  Type 1 - for man / 2 for woman ");
                 var optionSex = Convert.ToDouble(System.Console.ReadLine());
                 System.Console.WriteLine("do you like our product? 1)yes    2)no");
                 var optionLike = Convert.ToDouble(System.Console.ReadLine());
-
                 if (optionSex == 1){
-                    man++;
+                    man.man++;
                     if (optionLike == 1){
-                        manYes++;
+                        man.answerYes++;
                     }
                     else{
-                        manNo++;
+                        man.answerNo++;
                     }
                 }
                 else{
-                    woman++;
+                    woman.woman++;
                     if (optionLike == 1){
-                        womanYes++;
+                        woman.answerYes++;
                     }
                     else{
-                        womanNo++;
+                        woman.answerNo++;
                     }
                 }
-
-                count++;
             }
-            System.Console.WriteLine("{0} people answered yes.", womanYes+manYes);
-            System.Console.WriteLine("{0} people answered no.", womanNo+manNo);
-            System.Console.WriteLine("{0}% of women answered yes.", (womanYes/woman)*100);
-            System.Console.WriteLine("{0}% of men answered no.", (manNo/man)*100);
+           
+            System.Console.WriteLine($"{woman.answerYes+man.answerYes} people answered yes.");
+            System.Console.WriteLine($"{woman.answerNo+man.answerNo} people answered no.");
+            var percentWomanAnsweredYes = 0.0;
+            var percentManAnsweredNo = 0.0;
+            try
+            {
+                percentWomanAnsweredYes = (woman.answerYes/woman.woman)*100;
+                percentManAnsweredNo =  (man.answerNo/man.man)*100;           
+            }
+            catch (System.Exception)
+            {
+                percentWomanAnsweredYes = (woman.answerYes == 0 || woman.woman == 0) ? 0: percentWomanAnsweredYes;
+                percentManAnsweredNo = (woman.answerYes == 0 || woman.woman == 0) ? 0: percentWomanAnsweredYes;               
+                
+            } 
+            System.Console.WriteLine($"{percentWomanAnsweredYes}% of women answered yes.");
+            System.Console.WriteLine($"{percentManAnsweredNo}% of men answered no.");
         }
 
-        //Exercise 4
-        static void SumOfImparesNumbers(string[] args)
+        static void Exercise4()
         {
-            var vect = new double [5];
-            var count = 0;
+            var vect = new double [10];
             var sum = 0.0;
+            for (int i = 0; i < vect.Length; i++)
+            {    Console.WriteLine("Digit a number: ");
+                var input = Console.ReadLine();
+                try
+                {
+                    vect[i] = Double.Parse(input);
+                }
+                catch (System.Exception)
+                {
+                    
+                    Console.WriteLine("Insert only numbers!!");
+                }
+                sum = (vect[i] % 2 != 0) ? sum+=vect[i] : sum;
 
-            while (count < 5)
+            }
+
+            Console.WriteLine($"The sum of impars values is {sum}");
+        }
+
+        static void Exercise5()
+        {
+            var vect = new double [10];
+            var positiveNumbers = 0;
+
+            for (int i = 0; i < vect.Length; i++)
             {
                 System.Console.WriteLine("Digit a number: ");
-                vect[count] = Convert.ToDouble(System.Console.ReadLine());
-                if (vect[count] % 2 !=0){
-                    sum +=vect[count];
+                var input = Console.ReadLine();
+                try
+                {
+                    vect[i] = Double.Parse(input);
+                    positiveNumbers = (vect[i] > 0) ? positiveNumbers+=1 : positiveNumbers;
                 }
-                count++;
+                catch (System.Exception)
+                {
+                    Console.WriteLine("Insert only numbers!!");
+                }
             }
-            System.Console.WriteLine("The sum of impars values is {0}", sum);
+            System.Console.WriteLine($"It's {positiveNumbers} positive numbers in this vector");
         }
 
-        //Exercise 5
-        static void PositiveNumbers(string[] args)
+        static void Exercise6() 
         {
-            var vect = new int [10];
-            var count = 0;
-            var sum = 0;
-
-            while (count < 10)
-            {
+           double [] vect = new double [10];
+           (double value, int position, int flag) biggestNumber = (0.0, 0, 0);
+           var positiveNumber = 0.0;
+           
+           for (int i = 0; i < vect.Length; i++)
+           {
                 System.Console.WriteLine("Digit a number: ");
-                vect[count] = Convert.ToInt32(System.Console.ReadLine());
-                if (vect[count] > 0){
-                    sum++;
+                var input = Console.ReadLine();
+                try
+                {
+                    positiveNumber = Double.Parse(input);
+                    if(positiveNumber < 0){
+                        Console.WriteLine("Insert only positive numbers!!");
+                    }
+                    else{
+                        vect[i] = positiveNumber;
+                    }
+                    
                 }
-                count++;
+                catch (System.Exception)
+                {
+                    Console.WriteLine("Insert only numbers!!");
+                }
             }
-            System.Console.WriteLine("It's {0} positive numbers in this vector", sum);
+
+            for (int i = 0; i < vect.Length; i++)
+            {
+                for (int j = 0; j < vect.Length; j++)
+                {
+                    if (vect[i] > vect[j])
+                    {
+                        biggestNumber.value = vect[i];
+                        biggestNumber.position = i;
+                        biggestNumber.flag++;
+                    }                    
+                }
+                if (biggestNumber.flag == vect.Length - 1)
+                {
+                    break;
+                }           
+                biggestNumber.flag = 0;
+            }
+            
+           Console.WriteLine($"O valor {biggestNumber.value} esta na posicão {biggestNumber.position}");
+           
         }
 
-        //Exercise 6
-       static void PositionInTheVect(string[] args) 
+        static void Exercise7()
         {
-           int [] vect = new int [10];
-           var count = 0;
-           var auxiliar = 0;
-           var match = 0;
+            double [] vect;
+            var match = 0;
+            Console.WriteLine("quantos numeros queres inserir? ");
+            int inputIndex = Int32.Parse(Console.ReadLine());
+            vect = new double[inputIndex];
+            for (int i = 0; i < vect.Length; i++)
+            {    
+                Console.WriteLine("Digit a number: ");
+                var input = Console.ReadLine();
+                try
+                {
+                    vect[i] = Double.Parse(input);
+                }
+                catch (System.Exception)
+                {
+                    
+                    Console.WriteLine("Insert only numbers!!");
+                }
+
+                match = (vect[i]==i) ? match+=1 : match;               
+            }
            
-           while(count < 10){
-           	System.Console.WriteLine("Digite um numero");
-           	var input = Convert.ToInt32(System.Console.ReadLine());
-           	if(input < 0){
-           		System.Console.WriteLine("Insira somente numeros positivos!");
-           		continue;
-           	}
-           	else{
-           		vect[count] = input;
-           	}
-           	count++;
-           }
-           count = 0;
-           
-           while (count < 10){
-           		int i =0;
-           		while(i < 10){
-           			if(vect[count] > vect[i]){
-           				match++;
-           			}
-           			if(match == 9){
-           				auxiliar = count;
-           				break;
-           			}
-           			i++;
-           		}
-           		count++;
-           		match =0;
-           }
-           Console.WriteLine("O valor {0} esta na posicão {1}", vect[auxiliar], auxiliar);
+           System.Console.WriteLine($"Há {match} numeros na mesma posição dos seus valores.");
            
         }
 
-        //Exercise 7
-         static void SamePositionAndValue(string[] args)
-        {
-           int [] vect;
-           var count = 0;
-           var match = 0;
-           System.Console.WriteLine("quantos numeros queres inserir? ");
-           var index = Convert.ToInt32(System.Console.ReadLine());
-           vect = new int [index];
-           while(count < index){
-				System.Console.WriteLine("Insira um numero");
-				vect[count] = Convert.ToInt32(System.Console.ReadLine());
-				if(vect[count]==count){
-					match++;
-				}
-				count++;
-           }
-           System.Console.WriteLine("Há{0} numeros na mesma posição dos seus valores.", match);
-           
-        }
-
-        //Exercise 8
-
-         static void VogalsInVect(string[] args) 
+        static void Exercise8() 
         {
            string [] vect = new string[10];
-           var count = 0;
            var countVogal= 0;
            
-           while (count < 10){
-           	System.Console.WriteLine("Insira uma letra");
-           	vect[count] = System.Console.ReadLine().ToLower();
-           	if (vect[count]=="a" ||vect[count]=="e"|| vect[count]=="i"||vect[count]=="o"||vect[count]=="u"){
-           		countVogal++;
-           	}
-           	count++;
+           for (int i = 0; i < vect.Length; i++)
+           {
+                Console.WriteLine("Insira uma letra");
+           	    vect[i] = Console.ReadLine().ToLower();
+           	    
+                if (vect[i]=="a" || vect[i]=="e" || vect[i]=="i" || vect[i]=="o"|| vect[i]=="u")
+                {
+           		    countVogal++;
+           	    }      
            }
-           System.Console.WriteLine("Há {0} vogais no vetor", countVogal);
+           System.Console.WriteLine($"Há {countVogal} vogais no vetor");
         }
 
-        //Exercise 9
-
-         static void EvenInVect(string[] args) 
+        static void Exercise9() 
         {
            string [] vect = new string[10];
-           var count = 0;
-           
-           while(count <10){
-           	System.Console.WriteLine("Digite uma letra: ");
-           	vect[count] = System.Console.ReadLine();
-           	count++;
+           var biuldString = "";
+           for (int i = 0; i < vect.Length; i++)
+           {
+                Console.WriteLine("Digit a word: ");
+           	    vect[i] = System.Console.ReadLine();
+                biuldString = (i % 2 == 0) ? biuldString += vect[i] : biuldString;
            }
-           count = 0;
-           while(count < 10){
-           	if(count % 2 == 0){
-           		System.Console.WriteLine(vect[count]);
-           		
-           	}
-           	count++;
-           }
-    }
+           Console.WriteLine(biuldString);
+        }
+
+        static void Main(string[] args)
+         {
+            Exercise9();             
+         }   
+    } 
 }
