@@ -79,13 +79,17 @@ namespace third_exercises_csharp_entra21
             
             for (int i = 0; i < vect.Length; i++)
             {
-                for (int j = 0; j < vect.Length; j++)
+                for (int j = i; j < vect.Length; j++)
                 {
                     if (i != j && vect[i] == vect[j])
                     {
                         thereIsARepeatedNumber = true;
                         break;
                     }  
+                }
+                if (thereIsARepeatedNumber)
+                {
+                    break;
                 }
             }
 
