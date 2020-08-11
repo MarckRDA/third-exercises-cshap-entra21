@@ -15,33 +15,38 @@ namespace third_exercises_csharp_entra21
             for (int i = 0; i < arrayLength; i++)
             {
                 Console.WriteLine($"Digit the {i + 1}º number in vector A: ");
-                var input = Console.ReadLine();
-                try
+                while (true)
                 {
-                    vectA[i] = Double.Parse(input);
-                    auxiliarVect[i] = vectA[i];
+                    try
+                    {
+                        vectA[i] = Double.Parse(Console.ReadLine());
+                        break;
+                    }
+                    catch (System.Exception)
+                    {
+                        Console.WriteLine("Insert only numbers!! Try again!");
+                    }    
                 }
-                catch (System.Exception)
-                {
-                    
-                    Console.WriteLine("Insert only numbers.");
-                }
+                auxiliarVect[i] = vectA[i];
+                
             }
 
             for (int i = 0; i < arrayLength; i++)
             {
                 Console.WriteLine($"Digit the {i + 1}º number in vector B: ");
-                var input = Console.ReadLine();
-                try
+                while (true)
                 {
-                    vectB[i] = Double.Parse(input);
-                    vectA[i] = vectB[i];
+                    try
+                    {
+                        vectB[i] = Double.Parse(Console.ReadLine());
+                        break;        
+                    }
+                    catch (System.Exception)
+                    {
+                        Console.WriteLine("Insert only numbers!! Try again!");
+                    }    
                 }
-                catch (System.Exception)
-                {
-                    
-                    Console.WriteLine("Insert only numbers.");
-                }
+                vectA[i] = vectB[i];
             }
 
             for (int i = 0; i < arrayLength; i++)
@@ -56,16 +61,20 @@ namespace third_exercises_csharp_entra21
             for (int i = 0; i < vect.Length; i++)
             {
                 Console.WriteLine($"Digit the {i + 1}º number: ");
-                var input = Console.ReadLine();
-                try
+                while (true)
                 {
-                    vect[i] = Double.Parse(input);
-                }
-                catch (System.Exception)
-                {
+                    try
+                    {
+                        vect[i] = Double.Parse(Console.ReadLine());
+                        break;
+                    }
+                    catch (System.Exception)
+                    {
                     
-                    Console.WriteLine("Insert only numbers.");
+                        Console.WriteLine("Insert only numbers!! Try again!");
+                    }    
                 }
+                
             }
             
             for (int i = 0; i < vect.Length; i++)
@@ -93,10 +102,35 @@ namespace third_exercises_csharp_entra21
 
             for (int i = 0; i < interviwers; i++)
             {
+                var optionSex = 0; 
+                var optionLike = 0;
                 System.Console.WriteLine("Are you a man or woman ?  Type 1 - for man / 2 for woman ");
-                var optionSex = Convert.ToDouble(System.Console.ReadLine());
-                System.Console.WriteLine("do you like our product? 1)yes    2)no");
-                var optionLike = Convert.ToDouble(System.Console.ReadLine());
+                while (true)
+                {
+                    try
+                    {
+                        optionSex = Int32.Parse(Console.ReadLine());
+                        break;
+                    }
+                    catch (System.Exception)
+                    {
+                    
+                        Console.WriteLine("Insert only numbers!! Try again!");
+                    }    
+                }
+                Console.WriteLine("do you like our product? 1)yes    2)no");
+                while (true)
+                {
+                    try
+                    {
+                        optionLike = Int32.Parse(Console.ReadLine());
+                        break;
+                    }
+                    catch (System.Exception)
+                    {
+                        Console.WriteLine("Insert only numbers!! Try again!");
+                    }    
+                }
                 if (optionSex == 1){
                     man.man++;
                     if (optionLike == 1){
@@ -128,8 +162,8 @@ namespace third_exercises_csharp_entra21
             }
             catch (System.Exception)
             {
-                percentWomanAnsweredYes = (woman.answerYes == 0 || woman.woman == 0) ? 0: percentWomanAnsweredYes;
-                percentManAnsweredNo = (woman.answerYes == 0 || woman.woman == 0) ? 0: percentWomanAnsweredYes;               
+                percentWomanAnsweredYes = 0;
+                percentManAnsweredNo = 0;               
                 
             } 
             System.Console.WriteLine($"{percentWomanAnsweredYes}% of women answered yes.");
@@ -141,16 +175,19 @@ namespace third_exercises_csharp_entra21
             var vect = new double [10];
             var sum = 0.0;
             for (int i = 0; i < vect.Length; i++)
-            {    Console.WriteLine("Digit a number: ");
-                var input = Console.ReadLine();
-                try
+            {   
+                Console.WriteLine("Digit a number: ");
+                while (true)
                 {
-                    vect[i] = Double.Parse(input);
-                }
-                catch (System.Exception)
-                {
-                    
-                    Console.WriteLine("Insert only numbers!!");
+                    try
+                    {
+                        vect[i] = Double.Parse(Console.ReadLine());
+                        break;
+                    }
+                    catch (System.Exception)
+                    {
+                        Console.WriteLine("Insert only numbers!! Try again!");
+                    }
                 }
                 sum = (vect[i] % 2 != 0) ? sum+=vect[i] : sum;
 
@@ -167,16 +204,19 @@ namespace third_exercises_csharp_entra21
             for (int i = 0; i < vect.Length; i++)
             {
                 System.Console.WriteLine("Digit a number: ");
-                var input = Console.ReadLine();
-                try
+                while (true)
                 {
-                    vect[i] = Double.Parse(input);
-                    positiveNumbers = (vect[i] > 0) ? positiveNumbers+=1 : positiveNumbers;
+                    try
+                    {
+                        vect[i] = Double.Parse(Console.ReadLine());
+                        break;
+                    }
+                    catch (System.Exception)
+                    {
+                        Console.WriteLine("Insert only numbers!! Try again!");
+                    }
                 }
-                catch (System.Exception)
-                {
-                    Console.WriteLine("Insert only numbers!!");
-                }
+                positiveNumbers = (vect[i] > 0) ? positiveNumbers+=1 : positiveNumbers;
             }
             System.Console.WriteLine($"It's {positiveNumbers} positive numbers in this vector");
         }
@@ -190,22 +230,26 @@ namespace third_exercises_csharp_entra21
            for (int i = 0; i < vect.Length; i++)
            {
                 System.Console.WriteLine("Digit a number: ");
-                var input = Console.ReadLine();
-                try
+                while (true)
                 {
-                    positiveNumber = Double.Parse(input);
-                    if(positiveNumber < 0){
-                        Console.WriteLine("Insert only positive numbers!!");
+                    try
+                    {
+                        positiveNumber = Double.Parse(Console.ReadLine());
+                        if(positiveNumber < 0){
+                            Console.WriteLine("Insert only positive numbers!! Try again!");
+                            continue;
+                        }
+                        else{
+                            vect[i] = positiveNumber;
+                            break;
+                        }           
                     }
-                    else{
-                        vect[i] = positiveNumber;
+                    catch (System.Exception)
+                    {
+                        Console.WriteLine("Insert only numbers!! Try again!");
                     }
-                    
                 }
-                catch (System.Exception)
-                {
-                    Console.WriteLine("Insert only numbers!!");
-                }
+                
             }
 
             for (int i = 0; i < vect.Length; i++)
@@ -240,17 +284,18 @@ namespace third_exercises_csharp_entra21
             for (int i = 0; i < vect.Length; i++)
             {    
                 Console.WriteLine("Digit a number: ");
-                var input = Console.ReadLine();
-                try
+                while (true)
                 {
-                    vect[i] = Double.Parse(input);
+                    try
+                    {
+                        vect[i] = Double.Parse(Console.ReadLine());
+                        break;
+                    }
+                    catch (System.Exception)
+                    {
+                        Console.WriteLine("Insert only numbers!! Try again!");
+                    }
                 }
-                catch (System.Exception)
-                {
-                    
-                    Console.WriteLine("Insert only numbers!!");
-                }
-
                 match = (vect[i]==i) ? match+=1 : match;               
             }
            
@@ -267,7 +312,7 @@ namespace third_exercises_csharp_entra21
            {
                 Console.WriteLine("Insira uma letra");
            	    vect[i] = Console.ReadLine().ToLower();
-           	    
+                          	    
                 if (vect[i]=="a" || vect[i]=="e" || vect[i]=="i" || vect[i]=="o"|| vect[i]=="u")
                 {
            		    countVogal++;
