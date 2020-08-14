@@ -1,31 +1,7 @@
 ## Second C# exercises Entra21
 
-Each resolution of this list is in this repository. The identification is the method's name:
+If you'd like to run those codes, you just need to choose the exercise between 1 and 9:
 
-    // static void Exercise1() <--- Id
-
-If you'd like to run those codes, you need to instanciate the method into Main method and after that, run the code:
-
-``` c#
- static void Exercise2() 
-        {
-            double [] vect = new double[10];
-            var thereIsARepeatedNumber = false;
-            for (int i = 0; i < vect.Length; i++)
-            {
-                Console.WriteLine($"Digit the {i + 1}º number: ");
-                var input = Console.ReadLine();
-                ...
-
-//Intanciate (Exercise1a) into (Main):
-
-static void Main(string[] args)
-        {
-            Exercise2();    
-        }
-
-//Then, run the code!
-```
 1. Popule dois vetores com 10 valores cada. Após esta operação, troque o conteúdo dos vetores.
 
 2. Dado um vetor qualquer com 10 números, faça um programa que informa se há ou não números repetidos nesse vetor.
