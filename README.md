@@ -1,6 +1,6 @@
-## Second C# exercises Entra21
+## Third C# exercises Entra21
 
-If you'd like to run those codes, you just need to choose the exercise between 1 and 9:
+If you'd like to run those codes, you just need to choose the exercise between 1 and 9 in the Menu.cs file:
 
 1. Popule dois vetores com 10 valores cada. Após esta operação, troque o conteúdo dos vetores.
 

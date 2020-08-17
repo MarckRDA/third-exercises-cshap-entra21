@@ -7,10 +7,11 @@ namespace third_exercises_csharp_entra21
 
         public static void TwistedArrays()
         {
-            const int arrayLength = 10;
+            const int arrayLength = 5;
             double[] vectA = new double[arrayLength];
             double[] vectB = new double[arrayLength];
             double[] auxiliarVect = new double[arrayLength];
+            
 
             for (int i = 0; i < arrayLength; i++)
             {
@@ -53,6 +54,8 @@ namespace third_exercises_csharp_entra21
             {
                 vectB[i] = auxiliarVect[i];
             }
+            Console.WriteLine(string.Join(", ", vectA));
+            Console.WriteLine(string.Join(", ", vectB));
         }
 
     }
